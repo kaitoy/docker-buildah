@@ -1,6 +1,6 @@
 FROM golang:1.12.9-alpine3.10 AS build
 
-ENV BUILDAH_VER=1.10.1
+ENV BUILDAH_VER=1.11.3
 
 RUN apk update \
     && \
@@ -8,7 +8,8 @@ RUN apk update \
         gcc \
         musl-dev \
         libassuan-dev \
-        libc-dev gpgme-dev \
+        libc-dev \
+        gpgme-dev \
         libseccomp-dev \
         libselinux-dev \
         ostree-dev \
@@ -45,5 +46,3 @@ RUN apk update \
     chmod +x /usr/bin/runc
 
 ENTRYPOINT ["/buildah"]
-
-      
