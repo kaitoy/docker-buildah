@@ -1,6 +1,6 @@
 FROM golang:1.12.9-alpine3.10 AS build
 
-ENV BUILDAH_VER=1.11.5
+ENV BUILDAH_VER=1.11.6
 
 RUN apk update \
     && \
