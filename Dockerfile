@@ -1,6 +1,6 @@
-FROM golang:1.12.9-alpine3.10 AS build
+FROM golang:1.13.6-alpine3.11 AS build
 
-ENV BUILDAH_VER=1.12.0
+ENV BUILDAH_VER=1.13.0
 
 RUN apk update \
     && \
@@ -28,7 +28,7 @@ WORKDIR src/github.com/containers/buildah
 
 RUN GO111MODULE=on go build -mod=vendor -o buildah ./cmd/buildah
 
-FROM alpine:3.10
+FROM alpine:3.11
 
 COPY --from=build /go/src/github.com/containers/buildah/buildah /
 COPY registries.conf /etc/containers/
