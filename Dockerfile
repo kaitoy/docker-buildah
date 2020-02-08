@@ -1,6 +1,6 @@
 FROM golang:1.13.6-alpine3.11 AS build
 
-ENV BUILDAH_VER=1.13.2
+ENV BUILDAH_VER=1.14.0
 
 RUN apk update \
     && \
@@ -41,7 +41,7 @@ RUN apk update \
       lvm2 \
       ca-certificates \
     && \
-    wget -O /usr/bin/runc https://github.com/opencontainers/runc/releases/download/v1.0.0-rc9/runc.amd64 \
+    wget -O /usr/bin/runc https://github.com/opencontainers/runc/releases/download/v1.0.0-rc10/runc.amd64 \
     && \
     chmod +x /usr/bin/runc
 
